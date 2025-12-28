@@ -8,6 +8,7 @@ export function useClientAxios(): AxiosInstance {
     const locale = useLocale();               // <- provided by NextIntlClientProvider
 
     return axios.create({
+        baseURL: process.env.NEXT_PUBLIC_API_URL,
         withCredentials: true,
         headers: {
             'Accept-Language': locale,           // <- automatically the current locale
