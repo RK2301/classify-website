@@ -102,7 +102,7 @@ const TeacherFields: React.FC<TeacherFieldsProps> = ({
                             placeholder={t('selectSubjects')}
                             searchPlaceholder={t('searchSubjects')}
                             options={options}
-                            selected={field.value}
+                            selected={field.value || []}
                             onChange={field.onChange}
                         />
                     )}

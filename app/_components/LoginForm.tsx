@@ -34,7 +34,7 @@ const LoginForm = () => {
         console.log(data);
 
         await doRequest(async () => {
-            await axiosInst('https://classify.dev/api/users/login', {
+            await axiosInst(`https://${process.env.HOST}/api/users/login`, {
                 method: 'POST',
                 data: JSON.stringify(data),
                 headers: {

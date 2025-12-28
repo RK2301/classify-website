@@ -84,7 +84,7 @@ const ResetPasswordWrapper = ({ children }: { children: React.ReactNode }) => {
             case 1:
                 const form1Data = data as Inputs['step1']
                 doRequest(async () => {
-                    const res = await axiosInst(`https://classify.dev/api/reset-password/request`, {
+                    const res = await axiosInst(`https://${process.env.HOST}/api/reset-password/request`, {
                         method: 'POST',
                         data: JSON.stringify(form1Data),
                         headers: {
@@ -99,7 +99,7 @@ const ResetPasswordWrapper = ({ children }: { children: React.ReactNode }) => {
             case 2:
                 const form2Data = data as Inputs['step2']
                 doRequest(async () => {
-                    await axiosInst(`https://classify.dev/api/reset-password/verify`, {
+                    await axiosInst(`https://${process.env.HOST}/api/reset-password/verify`, {
                         method: 'POST',
                         data: JSON.stringify(form2Data),
                         headers: {
@@ -112,7 +112,7 @@ const ResetPasswordWrapper = ({ children }: { children: React.ReactNode }) => {
             case 3:
                 const form3Data = data as Inputs['step3'];
                 doRequest(async () => {
-                    await axiosInst(`https://classify.dev/api/reset-password/reset`, {
+                    await axiosInst(`https://${process.env.HOST}/api/reset-password/reset`, {
                         method: 'PUT',
                         data: JSON.stringify(form3Data),
                         headers: {

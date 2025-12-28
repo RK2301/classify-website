@@ -26,7 +26,7 @@ const SettingsFooter = () => {
     const onAccept = async () => {
         await doRequest(async () => {
             //make request to sign out
-            await axios('https://classify.dev/api/users/logout', {
+            await axios(`https://${process.env.HOST}/api/users/logout`, {
                 method: 'POST'
             })
 
