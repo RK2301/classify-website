@@ -12,7 +12,7 @@
 
 /* Here we want to style classes that are coming from leaflet. So we want CSS Modules to give us the ACTUAL classnames, not to add some random ID to them, because then they won't match the classnames defined inside the map
 . The solution is to define these classes as GLOBAL */
-:global(.leaflet-popup .leaflet-popup-content-wrapper) {
+.leaflet-popup .leaflet-popup-content-wrapper {
   background-color: #111827bd;
   border-radius: 5px;
   padding-right: 0.6rem;
@@ -20,23 +20,23 @@
   color: inherit;
 }
 
-:global(.leaflet-popup .leaflet-popup-content) {
+.leaflet-popup .leaflet-popup-content {
   font-size: 1.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-:global(.leaflet-popup .leaflet-popup-content span:first-child) {
+.leaflet-popup .leaflet-popup-content span:first-child {
   font-size: 1rem;
   line-height: 1;
 }
 
-:global(.leaflet-popup .leaflet-popup-tip) {
+.leaflet-popup .leaflet-popup-tip {
   background-color: #111827bd;
   backdrop-filter: blur(5px);
 }
 
-:global(.leaflet-popup-content-wrapper) {
+.leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--2);
 }
