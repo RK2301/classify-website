@@ -1,6 +1,6 @@
 'use client'
 
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import FullCalendar from "@fullcalendar/react"
 import { RefObject } from '@fullcalendar/core/preact.js'
 import { useEffect, useRef, useState } from 'react'
@@ -20,6 +20,7 @@ import { useIsMobile } from '@/app/_hooks/use-mobile'
 import IconButton from '@/app/_components/IconButton'
 import PillShapeTitle from '@/app/_components/PillShapeTitle'
 import { cn } from '@/lib/utils'
+import SwapIcon from './SwapIcon'
 
 
 /**avaliable languages in the app and their locales from full calendar */
@@ -31,27 +32,30 @@ const availableLocales: Record<Language, LocaleInput> = {
 
 /**This component shows Next, Today, Prev button in the calendar header toolbar */
 const TodayNextPrevButtons = ({ calendarRef }: { calendarRef: RefObject<FullCalendar | null> }) => {
+
+    const t = useTranslations()
+
     return (
         <div className='flex items-center gap-0.5 lg:gap-2'>
             {/**Back button */}
             <IconButton
                 onClick={() => calendarRef.current?.getApi().prev()}
             >
-                <MdArrowBackIosNew size={15} />
+                <SwapIcon ltrIcon={<MdArrowBackIosNew size={15} />} rtlIcon={<MdArrowForwardIos size={15} />} />
             </IconButton>
 
             <IconButton
                 onClick={() => calendarRef.current?.getApi().today()}
                 className='px-3 py-1'
             >
-                Today
+                {t('today')}
             </IconButton>
 
             {/**Next Button */}
             <IconButton
                 onClick={() => calendarRef.current?.getApi().next()}
             >
-                <MdArrowForwardIos size={15} />
+                <SwapIcon ltrIcon={<MdArrowForwardIos size={15} />} rtlIcon={<MdArrowBackIosNew size={15} />} />
             </IconButton>
         </div>
     )
@@ -66,15 +70,19 @@ const CalendarTitle = ({ calendarTitle }: { calendarTitle: string }) => {
 }
 
 
+/**This component return a toggle buttons in pill shape to change current calendar view
+ * 
+ * between month, week, day views
+ */
 const CalendarViewToggleButtons = ({ calendarRef }: { calendarRef: RefObject<FullCalendar | null> }) => {
 
     const [currentView, setCurrentView] = useState<string>(calendarRef.current?.getApi().view.type || 'timeGridWeek')
-    console.log(`Current view is: ${currentView}`);
+    const t = useTranslations()
 
     const views = [
-        { key: 'dayGridMonth', label: 'Month' },
-        { key: 'timeGridWeek', label: 'Week' },
-        { key: 'timeGridDay', label: 'Day' }
+        { key: 'dayGridMonth', label: t('month') },
+        { key: 'timeGridWeek', label: t('week') },
+        { key: 'timeGridDay', label: t('day') }
     ]
 
     return (

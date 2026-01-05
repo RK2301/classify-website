@@ -135,7 +135,7 @@
   body {
     /* @apply text-grey-700 bg-grey-0 font-sans text-[1.6rem] leading-relaxed min-h-screen; */
     transition: color 0.3s, background-color 0.3s;
-    color: var(--color-grey-900);
+    color: var(--color-grey-100);
   }
 
   img {

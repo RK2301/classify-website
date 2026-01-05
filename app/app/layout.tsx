@@ -12,7 +12,7 @@ export default async function AppMainLayout({ children }: { children: ReactNode 
 
     return (
         <SessionProvider user={user!}>
-            <div className="flex lg:max-h-screen bg-[var(--color-grey-100)]">
+            <div className="flex lg:max-h-screen">
                 <SidebarProvider>
 
                     <div>

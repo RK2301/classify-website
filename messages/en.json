@@ -245,5 +245,9 @@
     "emptyCoursesTitle": "No Courses Found",
     "emptyCoursesDescription": "No courses were found in the system or matching your current search criteria. Please try adjusting your search or ensure courses are available.",
     "addLessson": "Add Lesson",
-    "deleteLesson": "Delete Lesson"
+    "deleteLesson": "Delete Lesson",
+    "today": "Today",
+    "month": "Month",
+    "week": "Week",
+    "day": "Day"
 }
