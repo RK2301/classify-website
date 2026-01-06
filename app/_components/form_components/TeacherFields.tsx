@@ -79,6 +79,8 @@ const TeacherFields: React.FC<TeacherFieldsProps> = ({
                                     selected={field.value}
                                     onSelect={field.onChange}
                                     disabled={(date) => date > new Date()}
+                                    showOutsideDays={false}
+                                    weekStartsOn={0}
                                 />
                             </PopoverContent>
                         </Popover>

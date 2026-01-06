@@ -151,6 +151,8 @@ const AddCourseForm: React.FC<AddCourseFormProps> = ({ subjects, teachers }) => 
                                             mode='single'
                                             selected={field.value}
                                             onSelect={field.onChange}
+                                            showOutsideDays={false}
+                                            weekStartsOn={0}
                                         />
                                     </PopoverContent>
                                 </Popover>

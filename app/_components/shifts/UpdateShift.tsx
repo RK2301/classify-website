@@ -123,6 +123,8 @@ const UpdateShift: React.FC<UpdateShiftProps> = ({
                                         selected={field.value}
                                         onSelect={field.onChange}
                                         disabled={(cDate) => cDate > new Date()}
+                                        showOutsideDays={false}
+                                        weekStartsOn={0}
                                     />
                                 )}
                             />
