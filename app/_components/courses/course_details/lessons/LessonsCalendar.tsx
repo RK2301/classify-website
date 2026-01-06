@@ -49,24 +49,27 @@ const LessonsCalendar: React.FC<LessonsCalendarProps> = ({ lessons, courseId }) 
         flex flex-col items-center gap-6">
 
             <div className="flex flex-col items-center gap-2 w-full">
-                <Calendar
-                    mode='single'
-                    selected={selected}
-                    onSelect={setSelected}
-                    // onMonthChange={(newMonth: Date) => console.log(newMonth)}
-                    required
-                    className="w-full xl:w-3/4"
 
-                    modifiers={{
-                        hasLesson: (date: Date) => {
-                            return lessons.some(lesson => dayjs(lesson.startTime).isSame(date, 'day'))
-                        }
-                    }}
-                    modifiersClassNames={{
-                        hasLesson: 'text-brand-400 font-medium italic'
-                    }}
-                />
-
+                <div className="w-full xl:w-3/4">
+                    <Calendar
+                        mode='single'
+                        selected={selected}
+                        onSelect={setSelected}
+                        // onMonthChange={(newMonth: Date) => console.log(newMonth)}
+                        required
+                        className="w-full"
+                        modifiers={{
+                            hasLesson: (date: Date) => {
+                                return lessons.some(lesson => dayjs(lesson.startTime).isSame(date, 'day'))
+                            }
+                        }}
+                        modifiersClassNames={{
+                            hasLesson: 'text-brand-400 font-medium italic'
+                        }}
+                        weekStartsOn={0}
+                        showOutsideDays={false}
+                    />
+                </div>
 
                 {/**show add lesson button only for manager */}
                 <Restricted action={Actions.createAny} resource={Resources.Lesson}>

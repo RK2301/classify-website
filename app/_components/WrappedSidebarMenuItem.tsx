@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IconType } from "react-icons/lib";
 import Restricted from "./access_control/Restricted";
+import { cn } from "@/lib/utils";
 
 type SidebarHeaderProps = {
     item: {
@@ -28,7 +29,9 @@ const WrappedSidebarMenuItem: React.FC<SidebarHeaderProps> = ({ item }) => {
         <SidebarMenuButton
             asChild
             tooltip={item.title}
-            className="text-[var(--color-grey-600)] hover:bg-[var(--color-grey-100)]"
+            className={cn(`text-[var(--color-grey-600)] hover:bg-[var(--color-grey-100)]`,
+                isMobile && 'text-[var(--color-grey-800)] dark:text-[var(--color-grey-600)]'
+            )}
             isActive={item.exact ? pathname === item.url : pathname.includes(item.url)}
             // when button click & sidebar is opened in mobile -> close it
             onClick={() => {
